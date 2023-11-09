@@ -1,25 +1,16 @@
 const URL = 'https://course-api.com/javascript-store-products';
 
-const productsDOM = document.querySelector('.products-center');
-// const loading = document.querySelector('.loading');
-// const productsContainer = document.querySelector('.products-container');
-// const errorContainer = document.querySelector('.error');
-
-// window.addEventListener('load', () => fetchProducts());
+const productsDOM = document.querySelector('.products-container');
 
 const fetchProducts = async () => {
-  // productsContainer.style.display = 'none';
-  // errorContainer.style.display = 'none';
   productsDOM.innerHTML = "<div class='loading'></div>";
   try {
     const response = await fetch(URL);
     if (!response.ok) throw new Error('URL PROBLEM');
     const data = await response.json();
-    // loading.style.display = 'none';
+    console.log(data);
     return data;
   } catch (err) {
-    // loading.style.display = 'none';
-    // errorContainer.style.display = 'block';
     productsDOM.innerHTML = `<p class="error">Il y a une erreur: ${err.message}</p>`;
   }
 };
@@ -27,7 +18,7 @@ const fetchProducts = async () => {
 const displayProducts = (list) => {
   const html = list
     .map((el) => {
-      return `<a href="product.html" class="single-product">
+      return `<a href="product.html?id=${el.id}" class="single-product">
             <img
               src="${el.fields.image[0].url}"
               alt="${el.fields.name}"
@@ -45,7 +36,7 @@ const displayProducts = (list) => {
 
 const start = async () => {
   const list = await fetchProducts();
-  if (list) displayProducts(list);
+  displayProducts(list);
 };
 
 start();

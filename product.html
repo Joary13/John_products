@@ -3,10 +3,30 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles.css" />
     <title>Single Product</title>
   </head>
   <body>
-    <h1>single product</h1>
-    <a href="index.html">home</a>
+    <a href="index.html" class="btn home-link">back home</a>
+    <section class="product">
+      <div class="product-wrapper">
+        <img src="./couch.jpg" class="img" alt="" />
+        <div class="product info">
+          <h3>title</h3>
+          <h5>company</h5>
+          <span>$9.99</span>
+          <div class="colors">
+            <span class="product-color"></span>
+            <span class="product-color" style="background: red"></span>
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos quia
+            vitae, unde repudiandae rem sed aut optio id possimus est!
+          </p>
+          <button class="btn">add to cart</button>
+        </div>
+      </div>
+    </section>
+    <script src="product.js"> </script>
   </body>
 </html>
